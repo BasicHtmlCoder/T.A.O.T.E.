@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/bacloud22/TAOTE/issues"
   },
-  "homepage": "https://github.com/bacloud22/TAOTE#readme"
+  "homepage": "https://github.com/bacloud22/TAOTE#readme",
+  "devDependencies": {
+    "@types/node": "^22.15.19"
+  }
 }
