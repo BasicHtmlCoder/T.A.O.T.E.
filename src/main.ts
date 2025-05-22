@@ -1,5 +1,9 @@
 import Generators from "./Generators";
 import TAOTE from "./TAOTE";
+import * as a from "../GeneratorCanvas/animation"
+import * as f from "../GeneratorCanvas/frame"
+
+const square = new f.Rect(0, 0, 100, 100, a.HexColor("#e6e2e1"));
 
 const exhaustion: number = 2; // Seconds we consider it Infinite already
 const condition1 = (value: number): boolean => value == 0 || value > 0;
