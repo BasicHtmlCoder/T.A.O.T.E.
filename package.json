@@ -2,11 +2,11 @@
   "name": "taote",
   "version": "1.0.0",
   "description": "This is an attempt to test apps the time they bootstrap, crash or recover. To be able to deliver such practical solution, let's rephrase the previous phrase to the following:",
-  "main": "Generator.js",
   "type": "module",
   "scripts": {
-    "start": "node main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "node --experimental-specifier-resolution=node  dist/main.js",
+    "test": "node --test './src/**/*.test.ts'"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/bacloud22/TAOTE#readme",
   "devDependencies": {
-    "@types/node": "^22.15.19"
+    "@types/node": "^22.15.19",
+    "typescript": "^5.4.5"
   }
 }
