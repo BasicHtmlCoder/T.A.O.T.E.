@@ -1,12 +1,13 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
+// import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 // Convert import.meta.url to a file path
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  entry: './src/main.ts',
+  entry: './src/main-browser.ts',
   module: {
     rules: [
       {
@@ -23,4 +24,5 @@ export default {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  // plugins: [new HtmlWebpackPlugin()],
 };

@@ -27,6 +27,8 @@ class TAOTE {
       result: {},
       window: [],
     };
+
+    this.registerLifeCycle();
   }
 
   private timer(ms: number): Promise<void> {
@@ -281,7 +283,13 @@ class TAOTE {
     }
   }
 
-  public registerLifeCycle(): void {
+  private registerLifeCycle(): void {
+    if (typeof process !== 'object') {
+      // TODO: deal wwith browser environment
+
+      return;
+    }
+
     //do something when app is closing
     process.on("exit", exitHandler.bind(null, { cleanup: true, app: this }));
 
@@ -297,7 +305,8 @@ class TAOTE {
   }
 }
 
-process.stdin.resume(); //so the program will not close instantly
+if (typeof process === 'object')
+  process.stdin.resume(); //so the program will not close instantly
 
 function exitHandler(options: { cleanup?: boolean; exit?: boolean; app: TAOTE }, exitCode?: number): void {
   console.log(`Last operation "${options.app.last.op}" has been stopped unexpectedly`);

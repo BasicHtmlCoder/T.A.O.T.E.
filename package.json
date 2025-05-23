@@ -6,7 +6,7 @@
   "scripts": {
     "node_build": "tsc && tsc-alias",
     "build": "webpack",
-    "start": "node node_build/main.js",
+    "start": "node node_build/main-node.js",
     "test": "node --test './src/**/*.test.ts'"
   },
   "repository": {
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/BasicHtmlCoder/TAOTE#readme",
   "devDependencies": {
     "@types/node": "^22.15.19",
+    "html-webpack-plugin": "^5.6.3",
     "ts-loader": "^9.5.2",
     "tsc-alias": "^1.8.16",
     "typescript": "^5.8.3",

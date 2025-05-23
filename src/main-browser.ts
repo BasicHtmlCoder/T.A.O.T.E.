@@ -22,7 +22,7 @@ function process(value: number, memo: any): void {
 
 const app: Generators = new Generators();
 const context: TAOTE = new TAOTE(app, exhaustion);
-context.registerLifeCycle();
+
 // for (let n of context.repeater({ generator: naturals, round: 5 })) {
 //     console.log(n);
 // }
@@ -68,3 +68,29 @@ for (let n of context.AUntilB({ generatorA, generatorB, conditionA: condition1, 
     // console.log(n);
 }
 */
+
+// TESTING visualization library
+
+window.addEventListener("load", () => {
+  const canvas = <HTMLCanvasElement> document.getElementById("animation");
+  const player = new a.AnimationPlayer(canvas);
+  player.Resize(800, 600);
+  player.Play(Animation);
+});
+
+function* Animation(c) {
+  const square = new f.Rect(0, 0, 100, 100, a.HexColor("#e6e2e1"));
+
+  const radius = 100;
+  const rotSpeed = Math.PI;
+
+  let rot = 0;
+  while (true) {
+      rot += c.stats.dt * rotSpeed;
+      square.x = Math.cos(rot) * radius - square.w/2;
+      square.y = Math.sin(rot) * radius - square.h/2;
+
+      c.ctx.translate(c.width/2, c.height/2);
+      yield square;
+  }
+}
